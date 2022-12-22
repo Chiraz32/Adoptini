@@ -22,6 +22,7 @@ namespace AnimalAdoption.Controllers
 
         public IActionResult Index()
         {
+            DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
             List<Animal> animals = DataBaseContext.dataBase_Context.animal.ToList();
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
             ViewBag.animals = animals;
