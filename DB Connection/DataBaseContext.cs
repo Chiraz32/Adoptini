@@ -10,12 +10,13 @@ namespace AnimalAdoption.DB_Connection
 {
     public class DataBaseContext :Microsoft.EntityFrameworkCore.DbContext
     {
-        private static DataBaseContext dataBaseContext = null;
+    private static DataBaseContext dataBaseContext = null;
     private DataBaseContext(DbContextOptions o) : base(o) { }
 
     public DbSet<Animal> animal { get; set; }
     public DbSet<User> user { get; set; }
-        public static DataBaseContext dataBase_Context { get => dataBaseContext; set => dataBaseContext = Instantiate_DataBaseContext(); }
+    public DbSet<Adoption> adoptions { get; set; }
+    public static DataBaseContext dataBase_Context { get => dataBaseContext; set => dataBaseContext = Instantiate_DataBaseContext(); }
 
     public static DataBaseContext Instantiate_DataBaseContext()
     {
@@ -27,6 +28,7 @@ namespace AnimalAdoption.DB_Connection
                 dataBaseContext = new DataBaseContext(optionsBuilder.Options);
             return dataBaseContext;
         }
+           
 
         return dataBaseContext;
     }
