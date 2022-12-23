@@ -6,11 +6,13 @@
     @foreach (var animal in ViewBag.animals)
     {
         <div class="carte">
+            <img src=@animal.Image alt=@animal.Name>
+
             <div class="carte-text">
                 <p>
                     <h4> name: </h4> @animal.Name <br/>
                     <h4> type : </h4> @animal.Type  <br/>
-                     <h4> age :</h4> @animal.Age  <br />
+                    <h4> age :</h4> @animal.Age  <br />
 
                 </p>
             </div>
@@ -18,18 +20,3 @@
     }
 </div>
 
-<div class="container">
-    @foreach (var user in ViewBag.users)
-    {
-        <div class="carte">
-            <div class="carte-text">
-                <p>
-                    <h4> name: </h4> @user.Name <br />
-                    <h4> type : </h4> @user.Surname  <br/>
-                    <h4> age :</h4> @user.Age  <br />
-
-                </p>
-            </div>
-        </div>
-    }
-</div>
