@@ -2,34 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    @foreach (var animal in ViewBag.animals)
-    {
-        <div class="carte">
-            <div class="carte-text">
-                <p>
-                    <h4> name: </h4> @animal.Name <br/>
-                    <h4> type : </h4> @animal.Type  <br/>
-                     <h4> age :</h4> @animal.Age  <br />
 
-                </p>
-            </div>
-        </div>
-    }
-</div>
 
-<div class="container">
-    @foreach (var user in ViewBag.users)
-    {
-        <div class="carte">
-            <div class="carte-text">
-                <p>
-                    <h4> name: </h4> @user.Name <br />
-                    <h4> type : </h4> @user.Surname  <br/>
-                    <h4> age :</h4> @user.Age  <br />
-
-                </p>
-            </div>
-        </div>
-    }
-</div>
+<button type="button" class="btn btn-primary btn-lg"><a style="color : black " asp-controller="Adopting" asp-action="Adopt"> Adopter </a></button>
+<button type="button" class="btn btn-secondary btn-lg" > annoncer</button>
