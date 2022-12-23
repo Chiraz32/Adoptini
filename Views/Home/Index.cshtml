@@ -2,6 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    ViewData["Title"] = "Home Page";
+}
+
 <div class="container">
     @foreach (var animal in ViewBag.animals)
     {
@@ -10,8 +14,8 @@
 
             <div class="carte-text">
                 <p>
-                    <h4> name: </h4> @animal.Name <br/>
-                    <h4> type : </h4> @animal.Type  <br/>
+                    <h4> name: </h4> @animal.Name <br />
+                    <h4> type : </h4> @animal.Type  <br />
                     <h4> age :</h4> @animal.Age  <br />
 
                 </p>
@@ -19,4 +23,3 @@
         </div>
     }
 </div>
-
