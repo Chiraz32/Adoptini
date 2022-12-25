@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Index", "Adopting", FormMethod.Post))
+{  <span></span>
+    <br />
+    <span>Enter Your Name:</span> @Html.TextBox("Name", "Enter Name")
+    <br />
+    <span>Enter Your Surname: </span>@Html.TextBox("Surname")
+    <br />
+    <span>Enter Your Email: </span>@Html.TextBox("Email")
+    <br />
+    <span>Enter Your Adress: </span>@Html.TextBox("Adress")
+    <br />
+    <span>Enter Your Profession: </span>@Html.TextBox("Profession")
+    <br />
+    <span>Enter Your Family Situation: </span>@Html.TextBox("Family_situation")
+    <br />
+    <span>Enter Your Age: </span>@Html.TextBox("Age")
+    <br />
+    <span>Enter Your Phone Number: </span>@Html.TextBox("Phone_number")
+    <br />
+
+
+    <input id="Submit" type="submit" value="Index " />
+}

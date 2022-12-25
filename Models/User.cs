@@ -16,9 +16,9 @@ namespace AnimalAdoption.Models
         string profession;
         string family_situation;
          int age;
-        int phone_number;
+        string phone_number;
 
-        public User(int id, string name, string surname, string email, string adress, string profession, string family_situation, int age, int phone_number)
+        public User(int id, string name, string surname, string email, string adress, string profession, string family_situation, int age, string phone_number)
         {
             Id = id;
             Name = name;
@@ -39,6 +39,11 @@ namespace AnimalAdoption.Models
         public string Profession { get => profession; set => profession = value; }
         public string Family_situation { get => family_situation; set => family_situation = value; }
         public int Age { get => age; set => age = value; }
-        public int Phone_number { get => phone_number; set => phone_number = value; }
+        public string Phone_number { get => phone_number; set => phone_number = value; }
+
+        public override string ToString()
+        {
+            return this.Name+ " 'profession is  "+this.Profession;
+        }
     }
 }

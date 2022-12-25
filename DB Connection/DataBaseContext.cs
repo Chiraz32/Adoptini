@@ -23,7 +23,7 @@ namespace AnimalAdoption.DB_Connection
         if (dataBaseContext == null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DataBaseContext>();
-            optionsBuilder.UseSqlite(@"Data Source=../project.db");
+            optionsBuilder.UseSqlite(@"Data Source=C:\Users\dossc\Desktop\Animal Adoption\AnimalAdoption\project.db");
             
                 dataBaseContext = new DataBaseContext(optionsBuilder.Options);
             return dataBaseContext;

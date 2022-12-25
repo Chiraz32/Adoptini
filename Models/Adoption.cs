@@ -9,7 +9,8 @@ namespace AnimalAdoption.Models
     public class Adoption
     {
         [Key] int id;
-        int userId;
+        
+       int userId;
         int animalId;
         string date;
 
