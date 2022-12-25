@@ -1,4 +1,5 @@
 ﻿using AnimalAdoption.DB_Connection;
+using AnimalAdoption.DB_Connection.Repositories;
 using AnimalAdoption.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ namespace AnimalAdoption.Controllers
 {
     public class HomeController : Controller
     {
+        DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -22,16 +24,17 @@ namespace AnimalAdoption.Controllers
 
         public IActionResult Index()
         {
-            DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
-            List<Animal> animals = DataBaseContext.dataBase_Context.animal.ToList();
-            List<User> users = DataBaseContext.dataBase_Context.user.ToList();
+            List<Animal> animals = dataBaseContext.animal.ToList();
             ViewBag.animals = animals;
-            ViewBag.users = users;
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet("/pv/{id}")]
+        public IActionResult ViewAnimal(int id)
         {
+            AnimalRepository animalRepository = new AnimalRepository (dataBaseContext);
+            ViewBag.animal = animalRepository.Get(id);
+
             return View();
         }
 

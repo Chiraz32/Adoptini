@@ -11,11 +11,13 @@ namespace AnimalAdoption.Models
         [Key] int id;
         string name;
         string type;
-        int age ;
+        int age;
+        int weight;
         string adress;
         string image;
         string breed;
         string gender;
+
 
         public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int id)
         {
@@ -37,6 +39,7 @@ namespace AnimalAdoption.Models
         public string Breed { get => breed; set => breed = value; }
         public string Gender { get => gender; set => gender = value; }
         public int Id { get => id; set => id = value; }
+        public int Weight { get => weight; set => weight = value; }
     }
 
 

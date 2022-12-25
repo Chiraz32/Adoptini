@@ -1,0 +1,22 @@
+﻿@{
+   var animal = ViewBag.animal;
+}
+
+
+<div class="carte">
+    <img src=@animal.Image alt=@animal.Name>
+
+    <div class="carte-text">
+        <p>
+            <h4> name: </h4> @animal.Name <br />
+            <h4> type : </h4> @animal.Type  <br />
+            <h4> gender :</h4> @animal.Gender  <br />
+            <h4> age :</h4> @animal.Age  <br />
+            <h4> weight :</h4> @animal.Weight  <br />
+            <h4> adress : </h4> @animal.Adress  <br />
+            <h4> breed : </h4>@animal.Breed  <br />
+
+        </p>
+        <button> Addopt Me </button>
+    </div>
+</div>
