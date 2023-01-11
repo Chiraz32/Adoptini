@@ -8,26 +8,39 @@
 
 <h2>Search</h2>
 
-@using (Html.BeginForm("Index", "Adopting", FormMethod.Post))
-{  <span></span>
+@using (Html.BeginForm("Adopt", "Adopting", FormMethod.Post))
+{<span></span>
     <br />
-    <span>Enter Your Name:</span> @Html.TextBox("Name", "Enter Name")
+    int animalId;
+    string animalName;
+    string date;
+    int userId;
+    string userName;
+    string userSurname;
+    string userAdress;
+    string userProfession;
+    string userFamily_situation;
+    int userAge;
+    string remarks;
+    <span>Enter Your Animal Id :</span> @Html.TextBox("animalId")
     <br />
-    <span>Enter Your Surname: </span>@Html.TextBox("Surname")
+    <span>Enter Your  animal Name : </span>@Html.TextBox("animalName")
     <br />
-    <span>Enter Your Email: </span>@Html.TextBox("Email")
+    <span>Enter Your Name : </span>@Html.TextBox("userName")
     <br />
-    <span>Enter Your Adress: </span>@Html.TextBox("Adress")
+    <span>Enter Your SurName : </span>@Html.TextBox("userSurname")
     <br />
-    <span>Enter Your Profession: </span>@Html.TextBox("Profession")
+    <span>Enter Your Adress: </span>@Html.TextBox("userAdress")
     <br />
-    <span>Enter Your Family Situation: </span>@Html.TextBox("Family_situation")
+    <span>Enter Your Profession: </span>@Html.TextBox("userProfession")
     <br />
-    <span>Enter Your Age: </span>@Html.TextBox("Age")
+    <span>Enter Your Family Situation: </span>@Html.TextBox("userFamily_situation")
     <br />
-    <span>Enter Your Phone Number: </span>@Html.TextBox("Phone_number")
+    <span>Enter Your Age: </span>@Html.TextBox("userAge")
+    <br />
+    <span>Enter Your remarks : </span>@Html.TextBox("remarks")
     <br />
 
 
-    <input id="Submit" type="submit" value="Index " />
+    <input id="Submit" type="submit" value="Submit " />
 }

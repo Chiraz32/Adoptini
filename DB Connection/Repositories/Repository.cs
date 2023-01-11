@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace AnimalAdoption.DB_Connection.Repositories
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
 
                 throw ex;
             }
