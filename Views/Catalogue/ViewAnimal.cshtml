@@ -2,9 +2,9 @@
    var animal = ViewBag.animal;
 }
 
-
 <div class="carte">
-    <img src=@animal.Image alt=@animal.Name>
+
+      <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/" +animal.Image) alt=@animal.Name>
 
     <div class="carte-text">
         <p>

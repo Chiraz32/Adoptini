@@ -65,12 +65,7 @@ namespace AnimalAdoption
 
                 endpoints.MapControllerRoute(
                     name: "default",
-<<<<<<< HEAD
                     pattern: "{controller=Catalogue}/{action=Index}/{id?}");
-=======
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                
->>>>>>> 5a9fa8689641b2a4191bbf51ab34081a26f88779
             });
         }
     }

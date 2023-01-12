@@ -17,6 +17,9 @@ namespace AnimalAdoption.Controllers
         [HttpGet("post")]
         public IActionResult Index()
         {
+            var session = HttpContext.Session.GetString("userId");
+            if (session == null)
+                return Redirect("/signin");
             return View();
         }
 
@@ -34,7 +37,7 @@ namespace AnimalAdoption.Controllers
             {
                  uniqueFileName = GetUniqueFileName(image.FileName);
 
-                var filePath = Path.Combine("images", uniqueFileName);
+                var filePath = Path.Combine("wwwroot/images", uniqueFileName);
                 image.CopyTo(new FileStream(filePath, FileMode.Create));
 
                 //to do : Save uniqueFileName  to your db table   

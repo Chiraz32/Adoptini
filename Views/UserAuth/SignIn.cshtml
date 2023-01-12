@@ -3,23 +3,28 @@
 *@
 @{
 }
+@section Styles {
+    <link href="@Url.Content("~/css/signin.css")" rel="stylesheet" type="text/css" />
+}
 @using Microsoft.AspNetCore.Http;
 @if(@Context.Session.GetString("userId") != null){
 <h1> Logged in as @Context.Session.GetString("userId")</h1>
 }
 
-
+<div class="d-flex flex-column justify-content-center align-items-center w-100 sign-in-form-container">
 <h1>Sign In</h1>
 <h3>@ViewBag.errorMessage</h3>
-@using (Html.BeginForm("AuthenticateUser", "UserAuth", FormMethod.Post))
-{
 
-<span>Enter Your Email: </span>
-<input type="email" name="email" />
-<br />
-<span>Enter Your Password </span>
+<form action="/UserAuth/AuthenticateUser" method="post" class="d-flex flex-column justify-content-center align-items-center w-70">
 
-<input type="password" name="password" />
-
-<input id="Submit" type="submit" value="Submit" />
-}
+    <div class="form-group w-100">
+    <label for="email">Enter Your Email: </label>
+    <input class="form-control" palceholder="email" type="email" name="email" id="email" />
+    </div>
+    <div class="form-group w-100">
+    <label for="password">Enter Your Password </label>
+    <input type="password" class="form-control" name="password" id="password" />
+    </div>
+    <input class="btn btn-primary" id="Submit" type="submit" value="Submit" />
+</form>
+</div>
