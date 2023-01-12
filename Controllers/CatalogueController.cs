@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace AnimalAdoption.Controllers
 {
-    public class HomeController : Controller
+    public class CatalogueController : Controller
     {
         DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<CatalogueController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public CatalogueController(ILogger<CatalogueController> logger)
         {
             _logger = logger;
 
@@ -29,7 +29,7 @@ namespace AnimalAdoption.Controllers
             return View();
         }
 
-        [HttpGet("/pv/{id}")]
+        [HttpGet("/animal/{id}")]
         public IActionResult ViewAnimal(int id)
         {
             AnimalRepository animalRepository = new AnimalRepository (dataBaseContext);
@@ -42,6 +42,12 @@ namespace AnimalAdoption.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpGet("/test")]
+        public IActionResult Test ()
+        {
+            return View();
+
         }
     }
 }

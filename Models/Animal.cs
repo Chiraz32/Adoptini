@@ -19,7 +19,7 @@ namespace AnimalAdoption.Models
         string gender;
 
 
-        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int id)
+        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int weight,int id)
         {
             Name = name;
             Type = type;
@@ -29,6 +29,7 @@ namespace AnimalAdoption.Models
             Breed = breed;
             Gender = gender;
             Id = id;
+            Weight = weight;
         }
 
         public string Name { get => name; set => name = value; }

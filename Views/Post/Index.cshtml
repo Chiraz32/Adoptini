@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form enctype="multipart/form-data"  method="post">
+    <fieldset>
+        <legend>Post animal</legend>
+
+        <div>
+            <label for="Name">Name:</label>
+            <input type="text" name="Name" placeholder="Name" />
+        </div>
+        <div>
+            <label for="Type">Type:</label>
+            <input type="text" name="Type" placeholder="Dog,cat .." />
+        </div>
+        <div>
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" placeholder="Age (in months)" />
+        </div>
+        <div>
+            <label for="weight">weight:</label>
+            <input type="number" name="weight" placeholder="weight (in kg)" />
+        </div>
+        <div>
+            <label for="adress">adress:</label>
+            <input type="text" name="adress" placeholder="adress" />
+        </div>
+        <div>
+            <label for="breed">breed:</label>
+            <input type="text" name="breed" placeholder="porcelaine" />
+        </div>
+        <div>
+            <label for="gender">gender:</label>
+            <input type="text" name="gender" placeholder="male,female" />
+        </div>
+        <div>
+            <label for="image">image:</label>
+            <input type="file" name="image" />
+        </div>
+       
+        <div>
+
+            <input type="submit" value="Submit" class="submit" />
+        </div>
+    </fieldset>
+</form>

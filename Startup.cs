@@ -50,7 +50,7 @@ namespace AnimalAdoption
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Catalogue}/{action=Index}/{id?}");
             });
         }
     }
