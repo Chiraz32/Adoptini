@@ -27,19 +27,41 @@ namespace AnimalAdoption.Controllers
 
 
         [HttpPost]
-        public ActionResult Adopt( string name ,string surname, string email,string adress,string profession, string family_situation,int age,string phone_number)
+        public ActionResult Adopt(int animalId,
+        string animalName,
+        
+        int userId,
+        string userName,
+        string userSurname,
+        string userAdress,
+        string userProfession,
+        string userFamily_situation,
+        int userAge,
+        string remarks)
         {
             Debug.WriteLine(" form arrived");
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
-            List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            int id = users.Count();
+            List<Adoption> adoptions= DataBaseContext.dataBase_Context.adoption.ToList();
+            int id = adoptions.Count();
+            Debug.WriteLine(" adoplist " + id);
+
+            var date = DateTime.Now.ToString();
             
-            User user = new User(id+1, name, surname, email, adress, profession, family_situation, age, phone_number);
-            Debug.WriteLine("user added  "+ user.Name + user.Id+ user.Family_situation);
-            UserRepository userRepository = new UserRepository(dataBaseContext);
-            userRepository.Add(user);
-            IEnumerable<User> usersList = userRepository.GetAll();
-            Debug.WriteLine(" userlist " +usersList.Count());
+            Adoption adoption = new Adoption(id+1, animalId,animalName,
+       date,
+      userId,
+         userName,
+       userSurname,
+  userAdress,
+         userProfession,
+        userFamily_situation,
+         userAge,
+         remarks);
+          
+            AdoptingRepository adoptingRepository = new AdoptingRepository(dataBaseContext);
+            adoptingRepository.Add(adoption);
+            IEnumerable<Adoption> adoptionsList = adoptingRepository.GetAll();
+            Debug.WriteLine(" adoplist " +adoptionsList.Count());
 
             return RedirectToAction("Afficher");
         }

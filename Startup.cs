@@ -24,6 +24,9 @@ namespace AnimalAdoption
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc()
+            .AddSessionStateTempDataProvider();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +49,28 @@ namespace AnimalAdoption
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "SignUp",
+                    pattern: "SignIn",
+                    defaults: new { controller = "UserAuth", action = "SignIn" });
+
+                endpoints.MapControllerRoute(
+                    name: "SignUp",
+                    pattern: "SignUp",
+                    defaults: new { controller = "UserAuth", action = "SignUp" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
+<<<<<<< HEAD
                     pattern: "{controller=Catalogue}/{action=Index}/{id?}");
+=======
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+>>>>>>> 5a9fa8689641b2a4191bbf51ab34081a26f88779
             });
         }
     }
