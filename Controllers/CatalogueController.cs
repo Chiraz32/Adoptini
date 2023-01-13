@@ -1,6 +1,7 @@
 ﻿using AnimalAdoption.DB_Connection;
 using AnimalAdoption.DB_Connection.Repositories;
 using AnimalAdoption.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,7 +27,7 @@ namespace AnimalAdoption.Controllers
         {
             List<Animal> animals = dataBaseContext.animal.ToList();
             ViewBag.animals = animals;
-            ViewBag.message = id;
+            ViewBag.error= id;
             return View();
         }
 
@@ -34,7 +35,11 @@ namespace AnimalAdoption.Controllers
         public IActionResult ViewAnimal(int id)
         {
             AnimalRepository animalRepository = new AnimalRepository (dataBaseContext);
-            ViewBag.animal = animalRepository.Get(id);
+            Animal animal = animalRepository.Get(id);
+            ViewBag.animal = animal;
+            var email = HttpContext.Session.GetString("userId");
+            if (email == animal.UserMail)
+             ViewBag.user = true; 
 
             return View();
         }

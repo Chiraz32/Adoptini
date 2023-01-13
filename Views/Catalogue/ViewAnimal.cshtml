@@ -1,5 +1,6 @@
 ﻿@{
     var animal = ViewBag.animal;
+ 
 }
 
 @{ var imagePath = "";
@@ -25,35 +26,35 @@
 
         <div class="carte-animal-text">
             <div class="carte-animal-text1">
-            <div class="box">
-                <p class="animal-info-key"> Name</p>
-                <p class="animal-info-value"> @animal.Name</p>
-            </div>
+                <div class="box">
+                    <p class="animal-info-key"> Name</p>
+                    <p class="animal-info-value"> @animal.Name</p>
+                </div>
 
-                <div class ="box">
-                <p class="animal-info-key"> Type</p>
-                <p class="animal-info-value"> @animal.Type</p>
-            </div>
+                <div class="box">
+                    <p class="animal-info-key"> Type</p>
+                    <p class="animal-info-value"> @animal.Type</p>
+                </div>
 
-            <div class="box" >
-                <p class="animal-info-key"> Gender</p>
-                <p class="animal-info-value"> @animal.Gender</p>
-            </div>
+                <div class="box">
+                    <p class="animal-info-key"> Gender</p>
+                    <p class="animal-info-value"> @animal.Gender</p>
+                </div>
 
             </div>
             <div class="carte-animal-text2">
                 <div>
-                    <img src="../images/icon-age.png" alt="age-icon" class="animal-icon />
-                   <p class="animal-info-value"> @animal.Age</p>
+                    <img src="../images/icon-age.png" alt="age-icon" class="animal-icon   />
+                    <p class="animal-info-value"> @animal.Age</p>
                 </div>
 
                 <div>
-                    <img src="../images/icon-gender.png" alt="gender-icon" class="animal-icon  />
+                    <img src="../images/icon-gender.png" alt="gender-icon" class="animal-icon    />
                     <p class="animal-info-value"> @animal.Gender</p>
                 </div>
-                
+
                 <div>
-                    <img src="../images/icons-adress.png" alt="adress-icon" class="animal-icon />
+                    <img src="../images/icons-adress.png" alt="adress-icon" class="animal-icon   />
                     <p class="animal-info-value"> @animal.Adress</p>
                 </div>
 
@@ -63,9 +64,24 @@
                 <p>@animal.Description helloo my name dogy </p>
 
             </div>
-            <button class="adopt-me"> <a href="https://localhost:44331/Adopting/Adopt/@animal.Id">Adopt @animal.Name </a></button> 
 
-            
+            @{
+                if (ViewBag.user == true)
+                {
+                    <button onclick="@("window.location.href='" + @Url.Action("DeletePost", "Profile", new {id = animal.Id}) +"'");"
+                    class="VuButton"> Delete Post </button>
+
+                    <button onclick="@("window.location.href='" + @Url.Action("ModifyPost", "Post", new {id = animal.Id}) +"'");"
+                    class="VuButton">Update @animal.Name 's card </button>
+                }
+                else
+                {
+                    <button onclick="@("window.location.href='" + @Url.Action("Adopt", "Adopting", new {id = animal.Id}) +"'");"
+                    class="VuButton">Adopt @animal.Name </button>
+                }
+
+            }
+
         </div>
         <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/"+animal.Image) alt=@animal.Name class="carte-animal-img">
 

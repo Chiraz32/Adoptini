@@ -1,8 +1,12 @@
 ﻿@model Animal
 
-@{
-   
-}
+@{ var MaleChecked=false;
+   var FemaleChecked=false;
+if (@Model.Gender== "male")
+   {MaleChecked=true;}
+else
+   FemaleChecked=true;
+ }
 
 <head>
     <link rel="stylesheet" href="~/css/styleForm.css" />
@@ -17,7 +21,7 @@
         </div>
     </div>
     <div class='right-container'>
-        @using (Html.BeginForm("Modifing", "Post", FormMethod.Post))
+        @using (Html.BeginForm("Modifying", "Post", FormMethod.Post))
         {
         <header>
 
@@ -49,13 +53,13 @@
                     <label for='gender'>Gender</label>
 
                     <div class='radio-container'>
-                        <input checked='' id='pet-gender-female' name="gender" type='radio' value='female'>
+                        <input checked =@FemaleChecked id='pet-gender-female' name="gender" type='radio' value='female'>
                         <label for='pet-gender-female'>Female</label>
-                        <input id='pet-gender-male' name='gender' type='radio' value='male'>
+                        <input checked =@MaleChecked  id='pet-gender-male' name='gender' type='radio' value='male'>
                         <label for='pet-gender-male'>Male</label>
                     </div>
-                </div>
 
+                </div>
                 <div class="label">
                     <div>
                         <label for="adress">Adress </label>
@@ -69,12 +73,15 @@
                     <label for="breed">Breed</label>
                     @Html.TextBoxFor(e => e.Breed, new { required = "required" })
                 </div>
-                <div class="label">
-                    <label for="image">image:</label>
-                    @Html.TextBoxFor(e => e.Image, new { required = "required", Type = "file" ,Value= Model.Image})
-                </div>
+               
+                    <div class="label">
+                        <label for="image">image:</label>
+                        @Html.TextBoxFor(e => e.Image, new { Type = "file", Value = Model.Image })
+                    </div>
+               
 
             </div>
+           
 
         </header>
             <footer>
