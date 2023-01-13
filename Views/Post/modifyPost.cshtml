@@ -1,0 +1,90 @@
+﻿@model Animal
+
+@{
+   
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/styleForm.css" />
+</head>
+<div class='signup-container'>
+    <div class='left-container'>
+        <h1>
+            <img src='~/images/ADOPTINI.png'>
+        </h1>
+        <div class='puppy'>
+            <img src='~/images/dog_image-removebg-preview.png'>
+        </div>
+    </div>
+    <div class='right-container'>
+        @using (Html.BeginForm("Modifing", "Post", FormMethod.Post))
+        {
+        <header>
+
+            <h1>Modify your animal Criterions !</h1>
+            @Html.Hidden("id", Model.Id)
+            <div class='set'>
+                <div class='label'>
+                    <label for='Name'>Name</label>
+                    @Html.TextBoxFor(e => e.Name, new { required = "required" })
+                </div>
+                <div class="label">
+                    <label for="Type">Type</label>
+                    @Html.TextBoxFor(e => e.Type, new { required = "required" })
+                </div>
+
+            </div>
+            <div class='set'>
+                <div class="label">
+                    <label for="Age">Age:</label>
+                    @Html.TextBoxFor(e => e.Age, new { type = "number", required = "required" })
+                </div>
+                <div class="label">
+                    <label for="weight">Weight </label>
+                    @Html.TextBoxFor(e => e.Weight, new { type = "number", required = "required" })
+                </div>
+            </div>
+            <div class='set'>
+                <div class='label'>
+                    <label for='gender'>Gender</label>
+
+                    <div class='radio-container'>
+                        <input checked='' id='pet-gender-female' name="gender" type='radio' value='female'>
+                        <label for='pet-gender-female'>Female</label>
+                        <input id='pet-gender-male' name='gender' type='radio' value='male'>
+                        <label for='pet-gender-male'>Male</label>
+                    </div>
+                </div>
+
+                <div class="label">
+                    <div>
+                        <label for="adress">Adress </label>
+                        @Html.TextBoxFor(e => e.Adress, new { required = "required" })
+                    </div>
+                </div>
+
+            </div>
+            <div class=" set">
+                <div class="label">
+                    <label for="breed">Breed</label>
+                    @Html.TextBoxFor(e => e.Breed, new { required = "required" })
+                </div>
+                <div class="label">
+                    <label for="image">image:</label>
+                    @Html.TextBoxFor(e => e.Image, new { required = "required", Type = "file" ,Value= Model.Image})
+                </div>
+
+            </div>
+
+        </header>
+            <footer>
+                <div class='set'>
+                    <input id="back" type="reset" value="reset" />
+                    <input id="next" type="submit" value="Submit" />
+                </div>
+            </footer>
+        }
+
+        </div>
+</div>
+
