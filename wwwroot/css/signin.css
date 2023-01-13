@@ -1,6 +1,52 @@
 ﻿
-.sign-in-form-container{
-    transform: translateY(50%);
-    color:white;
-    background: 
+.sign-in-form-container {
+    color: white;
+    padding: 40px 40px;
+    border-radius: 5px;
+    margin: 0;
+    background: #EF8202;
+    width:40%
+}
+a{
+    text-decoration:underline;
+    color:inherit;
+}
+a:hover{
+    color:inherit;
+}
+.btn-primary{
+    width:50%;
+}
+.seperator {
+    height:2px;
+    background-color:white;
+    width:100%
+}
+main{
+    width:100%;
+    height:100%;
+}
+.sign-in-button {
+    margin: 10px;
+}
+.sign-in-form{
+    margin-top:10px;
+    gap: 20px;
+    width:100%;
+}
+h1{
+    margin-bottom:3px !important;
+}
+.error-message {
+    color: black;
+    margin: 0;
+    animation: fade-in 1s ease-in;
+}
+@keyframes fade-in{
+    0% {
+            opacity:0;
+        }
+        100%{
+            opacity:1;
+        }
 }

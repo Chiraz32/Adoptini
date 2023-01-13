@@ -10,21 +10,41 @@
 @if(@Context.Session.GetString("userId") != null){
 <h1> Logged in as @Context.Session.GetString("userId")</h1>
 }
-
-<div class="d-flex flex-column justify-content-center align-items-center w-100 sign-in-form-container">
+@{
+    var shouldDisplayPasswordError = ViewBag.errorMessage?.Contains("password") == true;
+    var shouldDisplayEmailError = ViewBag.errorMessage!= null && !ViewBag.errorMessage.Contains("password");
+}
+<div class="sign-in-container w-100 h-100 d-flex justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center sign-in-form-container">
 <h1>Sign In</h1>
-<h3>@ViewBag.errorMessage</h3>
-
-<form action="/UserAuth/AuthenticateUser" method="post" class="d-flex flex-column justify-content-center align-items-center w-70">
+<div class="seperator"></div>
+<form action="/UserAuth/AuthenticateUser" method="post" class="d-flex flex-column h-100 justify-content-center align-items-center sign-in-form ">
 
     <div class="form-group w-100">
-    <label for="email">Enter Your Email: </label>
-    <input class="form-control" palceholder="email" type="email" name="email" id="email" />
-    </div>
+    <label for="email">Email:</label>
+    <input class="form-control w-100" type="email" name="email" id="email" palceholder="Email" required aria-describedby="emailError"/>
+  
+                <h3 id="emailError" class="form-text error-message">
+                    @if (shouldDisplayEmailError)
+                    {
+                        @ViewBag.errorMessage
+                    }
+                </h3>
+            </div>
     <div class="form-group w-100">
-    <label for="password">Enter Your Password </label>
-    <input type="password" class="form-control" name="password" id="password" />
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required aria-describedby="passwordError"describedb />
+   
+      <h3 id="passwordError" class="form-text error-message">
+                    @if (shouldDisplayPasswordError)
+                    {
+                        @ViewBag.errorMessage
+                    }
+      </h3>
     </div>
-    <input class="btn btn-primary" id="Submit" type="submit" value="Submit" />
+    <input class="btn btn-primary sign-in-button" id="Submit" type="submit" value="Submit" />
+    <small>Don't have an account?
+        <a class="sign-up-link" asp-area="" asp-controller="UserAuth" asp-action="Signup">Sign up now</a></small>
 </form>
+</div>
 </div>
