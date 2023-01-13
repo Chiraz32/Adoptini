@@ -17,9 +17,11 @@ namespace AnimalAdoption.Models
         string image;
         string breed;
         string gender;
+        string description;
 
 
-        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int weight,int id)
+
+        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int weight,int id,string description)
         {
             Name = name;
             Type = type;
@@ -35,12 +37,13 @@ namespace AnimalAdoption.Models
         public string Name { get => name; set => name = value; }
         public string Type { get => type; set => type = value; }
         public int Age { get => age; set => age = value; }
-        public string Adress { get => adress; set => adress = value; }
         public string Image { get => image; set => image = value; }
         public string Breed { get => breed; set => breed = value; }
         public string Gender { get => gender; set => gender = value; }
         public int Id { get => id; set => id = value; }
         public int Weight { get => weight; set => weight = value; }
+        public string Adress { get => adress; set => adress = value; }
+        public string Description { get => description; set => description = value; }
     }
 
 

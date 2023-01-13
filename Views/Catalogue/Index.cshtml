@@ -1,41 +1,28 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <link rel="stylesheet" href="~/css/catalogue.css" />
 
-<div class="container">
+</head>
+
+
+<div class="catalogue-container">
     @foreach (var animal in ViewBag.animals)
     {
-        <div class="carte">
-            @{
-
-                var image = @animal.Image.Contains("http") ? @animal.Image : "~/images/"+@animal.Image;
-            }
-            <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@image>
+        <div class="carte"
+         onclick="@("window.location.href='" + @Url.Action("ViewAnimal", "Catalogue", new {id = animal.Id}) +"'");">
+            
             <div class="carte-text">
-                <p>
-                    <h4> name: </h4> @animal.Name <br/>
-                    <h4> type : </h4> @animal.Type  <br/>
-                    <h4> gender :</h4> @animal.Gender  <br />
+                <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@animal.Name>
 
-                </p>
-                <a href="/animal/@animal.Id"> View more </a>
+                <div class="info">
+                    <h3 class="animal-name"> @animal.Name </h3>
+                    <h4 class="animal-breed"> @animal.Breed  </h4>  
+                    <h5 class="animal-adress"> @animal.Adress </h5>   
 
-            </div>
+                </div>
+           </div>
         </div>
-    }
-   </div>
-<div class="carte">
-    @{
-        string path = "1200px-Beagle_Faraon_0f81.jpg";
-
-    }
-    <img src="" alt='1200px-Beagle_Faraon_0f81.jpg'>
-    <div class="carte-text">
-        <p>
-            <h4> name: </h4> Name <br />
-          
-
-        </p>
-
-    </div>
+     }
 </div>

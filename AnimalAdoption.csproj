@@ -9,4 +9,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.32" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\1200px-Beagle_Faraon_0df6.jpg" />
+    <None Include="wwwroot\images\1200px-Beagle_Faraon_0f81.jpg" />
+    <None Include="wwwroot\images\Australian-Shepherd.1_cc38.jpg" />
+    <None Include="wwwroot\images\gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761_225a.jpg" />
+    <None Include="wwwroot\images\gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761_5f18.jpg" />
+    <None Include="wwwroot\images\gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761_9018.jpg" />
+    <None Include="wwwroot\images\gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761_b387.jpg" />
+    <None Include="wwwroot\images\images_9b30.jpg" />
+    <None Include="wwwroot\images\images_b329.jpg" />
+  </ItemGroup>
+
 </Project>

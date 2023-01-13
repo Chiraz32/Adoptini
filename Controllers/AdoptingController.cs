@@ -41,7 +41,7 @@ namespace AnimalAdoption.Controllers
         {
             Debug.WriteLine(" form arrived");
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
-            List<Adoption> adoptions= DataBaseContext.dataBase_Context.adoption.ToList();
+            List<Adoption> adoptions= DataBaseContext.dataBase_Context.adoptions.ToList();
             int id = adoptions.Count();
             Debug.WriteLine(" adoplist " + id);
 

@@ -25,7 +25,7 @@ namespace AnimalAdoption.Controllers
 
         [HttpPost ("post")]
         public IActionResult Index(string name,string type,int age,int weight,
-                                string adress, IFormFile image,string breed,string gender)
+                                string adress, IFormFile image,string breed,string gender,string description )
         {
 
             Debug.WriteLine(" form arrived");
@@ -43,7 +43,7 @@ namespace AnimalAdoption.Controllers
                 //to do : Save uniqueFileName  to your db table   
             }
 
-            Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id ) ;
+            Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id,description) ;
             AnimalRepository animalRepository = new AnimalRepository(dataBaseContext);
             animalRepository.Add(animal);
 

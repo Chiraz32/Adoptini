@@ -1,22 +1,61 @@
 ﻿@{
    var animal = ViewBag.animal;
 }
+<head>
+    <link rel="stylesheet" href="~/css/catalogue.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 
-<div class="carte">
+</head>
+<div class="carte-animal-body">
+    <h4 class="animal-name"> My name is @animal.Name ! </h4>
 
-      <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/" +animal.Image) alt=@animal.Name>
+    <div class="carte-animal">
 
-    <div class="carte-text">
-        <p>
-            <h4> name: </h4> @animal.Name <br />
-            <h4> type : </h4> @animal.Type  <br />
-            <h4> gender :</h4> @animal.Gender  <br />
-            <h4> age :</h4> @animal.Age  <br />
-            <h4> weight :</h4> @animal.Weight  <br />
-            <h4> adress : </h4> @animal.Adress  <br />
-            <h4> breed : </h4>@animal.Breed  <br />
+        <div class="carte-animal-text">
+            <div class="carte-animal-text1">
+            <div class="box">
+                <p class="animal-info-key"> Name</p>
+                <p class="animal-info-value"> @animal.Name</p>
+            </div>
 
-        </p>
-        <button> Addopt Me </button>
+                <div class ="box">
+                <p class="animal-info-key"> Type</p>
+                <p class="animal-info-value"> @animal.Type</p>
+            </div>
+
+            <div class="box" >
+                <p class="animal-info-key"> Gender</p>
+                <p class="animal-info-value"> @animal.Gender</p>
+            </div>
+
+            </div>
+            <div class="carte-animal-text2">
+                <div>
+                    <img src="../images/icon-age.png" alt="age-icon" class="animal-icon />
+                   <p class="animal-info-value"> @animal.Age</p>
+                </div>
+
+                <div>
+                    <img src="../images/icon-gender.png" alt="gender-icon" class="animal-icon  />
+                    <p class="animal-info-value"> @animal.Gender</p>
+                </div>
+                
+                <div>
+                    <img src="../images/icons-adress.png" alt="adress-icon" class="animal-icon />
+                    <p class="animal-info-value"> @animal.Adress</p>
+                </div>
+
+            </div>
+
+            <div class="animal-description">
+                <p>@animal.Description helloo my name dogy </p>
+
+            </div>
+            <button class="adopt-me"> Addopt Me </button>
+
+            
+        </div>
+        <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/"+animal.Image) alt=@animal.Name class="carte-animal-img">
+
     </div>
 </div>
