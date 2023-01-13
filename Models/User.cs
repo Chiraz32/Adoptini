@@ -13,6 +13,10 @@ namespace AnimalAdoption.Models
         string password;
         string phone_number;
 
+        public User()
+        {
+        }
+
         public User(int id, string email, string password, string phone_number)
         {
             id = id;

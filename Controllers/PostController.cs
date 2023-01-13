@@ -42,8 +42,10 @@ namespace AnimalAdoption.Controllers
 
                 //to do : Save uniqueFileName  to your db table   
             }
-
-            Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id ) ;
+            List<User> users = DataBaseContext.dataBase_Context.user.ToList();
+            var email = HttpContext.Session.GetString("userId");
+            User user = users.Find(user => user.Email == email);
+            Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id ,email) ;
             AnimalRepository animalRepository = new AnimalRepository(dataBaseContext);
             animalRepository.Add(animal);
 

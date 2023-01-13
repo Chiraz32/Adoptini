@@ -64,6 +64,11 @@ namespace AnimalAdoption
                     defaults: new { controller = "UserAuth", action = "SignUp" });
 
                 endpoints.MapControllerRoute(
+                    name: "Adopting",
+                    pattern: "{controller=Adopting }/{action=Adopt}/{id}");
+                   
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Catalogue}/{action=Index}/{id?}");
             });

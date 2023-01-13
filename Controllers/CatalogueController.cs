@@ -22,10 +22,11 @@ namespace AnimalAdoption.Controllers
 
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? id)
         {
             List<Animal> animals = dataBaseContext.animal.ToList();
             ViewBag.animals = animals;
+            ViewBag.message = id;
             return View();
         }
 

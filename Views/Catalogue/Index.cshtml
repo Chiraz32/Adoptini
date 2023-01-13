@@ -1,6 +1,16 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@{
+    var message = ViewBag.message;
+    if (@message != null)
+    {   
+      
+        <div class="alert alert-warning" role="alert">
+            @message
+        </div>
+    }
+}
 
 <div class="container">
     @foreach (var animal in ViewBag.animals)
@@ -8,13 +18,13 @@
         <div class="carte">
             @{
 
-                var image = @animal.Image.Contains("http") ? @animal.Image : "~/images/"+@animal.Image;
+                var image = @animal.Image.Contains("http") ? @animal.Image : "/images/" + @animal.Image;
             }
             <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@image>
             <div class="carte-text">
                 <p>
-                    <h4> name: </h4> @animal.Name <br/>
-                    <h4> type : </h4> @animal.Type  <br/>
+                    <h4> name: </h4> @animal.Name <br />
+                    <h4> type : </h4> @animal.Type  <br />
                     <h4> gender :</h4> @animal.Gender  <br />
 
                 </p>
@@ -23,7 +33,7 @@
             </div>
         </div>
     }
-   </div>
+</div>
 <div class="carte">
     @{
         string path = "1200px-Beagle_Faraon_0f81.jpg";
@@ -33,7 +43,7 @@
     <div class="carte-text">
         <p>
             <h4> name: </h4> Name <br />
-          
+
 
         </p>
 

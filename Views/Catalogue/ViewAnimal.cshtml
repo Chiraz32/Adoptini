@@ -1,22 +1,30 @@
 ﻿@{
-   var animal = ViewBag.animal;
+    var animal = ViewBag.animal;
 }
+@{ var imagePath = "";
+    if (animal.Image.Contains("http"))
+    { imagePath = animal.Image;
 
-<div class="carte">
+    }
+    else {
+        imagePath = @"../images/" + animal.Image;
+    }
+}
+    <div class="carte">
 
-      <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/" +animal.Image) alt=@animal.Name>
+        <img src="@imagePath" alt=@animal.Name>
 
-    <div class="carte-text">
-        <p>
-            <h4> name: </h4> @animal.Name <br />
-            <h4> type : </h4> @animal.Type  <br />
-            <h4> gender :</h4> @animal.Gender  <br />
-            <h4> age :</h4> @animal.Age  <br />
-            <h4> weight :</h4> @animal.Weight  <br />
-            <h4> adress : </h4> @animal.Adress  <br />
-            <h4> breed : </h4>@animal.Breed  <br />
+        <div class="carte-text">
+            <p>
+                <h4> name: </h4> @animal.Name <br />
+                <h4> type : </h4> @animal.Type  <br />
+                <h4> gender :</h4> @animal.Gender  <br />
+                <h4> age :</h4> @animal.Age  <br />
+                <h4> weight :</h4> @animal.Weight  <br />
+                <h4> adress : </h4> @animal.Adress  <br />
+                <h4> breed : </h4>@animal.Breed  <br />
 
-        </p>
-        <button> Addopt Me </button>
+            </p>
+           <button> <a href="https://localhost:44331/Adopting/Adopt/@animal.Id">Addopt Me </a></button>
+        </div>
     </div>
-</div>

@@ -1,46 +1,92 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿
+<head>
+    <link rel="stylesheet" href="~/css/styleForm.css" />
+</head>
+@model Adoption
+@{ var name = Model.AnimalName;
 }
-
-
-
-<h2>Search</h2>
-
 @using (Html.BeginForm("Adopt", "Adopting", FormMethod.Post))
-{<span></span>
-    <br />
-    int animalId;
-    string animalName;
-    string date;
-    int userId;
-    string userName;
-    string userSurname;
-    string userAdress;
-    string userProfession;
-    string userFamily_situation;
-    int userAge;
-    string remarks;
-    <span>Enter Your Animal Id :</span> @Html.TextBox("animalId")
-    <br />
-    <span>Enter Your  animal Name : </span>@Html.TextBox("animalName")
-    <br />
-    <span>Enter Your Name : </span>@Html.TextBox("userName")
-    <br />
-    <span>Enter Your SurName : </span>@Html.TextBox("userSurname")
-    <br />
-    <span>Enter Your Adress: </span>@Html.TextBox("userAdress")
-    <br />
-    <span>Enter Your Profession: </span>@Html.TextBox("userProfession")
-    <br />
-    <span>Enter Your Family Situation: </span>@Html.TextBox("userFamily_situation")
-    <br />
-    <span>Enter Your Age: </span>@Html.TextBox("userAge")
-    <br />
-    <span>Enter Your remarks : </span>@Html.TextBox("remarks")
-    <br />
+{
+
+    <div class='signup-container'>
+        <div class='left-container'>
+            <h1>
+                <img src='~/images/ADOPTINI.png'>
+            </h1>
+            <div class='puppy'>
+                <img src='~/images/dog_image-removebg-preview.png'>
+            </div>
+        </div>
+        <div class='right-container'>
+            <form></form>
+            <header>
+                <h1>Adopt @name !</h1>
+                @Html.Hidden("animalID", Model.AnimalId)
+                @Html.Hidden("animalName", Model.AnimalName)
 
 
-    <input id="Submit" type="submit" value="Submit " />
+
+                <div class='set'>
+                    <div class='label'>
+                        <label> Your Name </label>
+
+                        @Html.TextBoxFor(e => e.UserName, new { placeholder = "Name", required = "required" })
+                        @Html.ValidationMessageFor(e => e.UserName)
+                    </div>
+                    <div class='label'>
+                        <label> Your Surname </label>
+                        @Html.TextBoxFor(e => e.UserSurname, new { placeholder = "Surname", required = "required" })
+                    </div>
+                </div>
+                <div class='set'>
+                    <div class='label'>
+                        <label> Your Phone </label>
+
+                        @Html.TextBoxFor(e => e.UserPhone, new { placeholder = "Phone", required = "required",type="number" })
+                       
+                    </div>
+                    <div class='label'>
+                        <label> Your Email </label>
+                        @Html.TextBoxFor(e => e.UserEmail, new { placeholder = "Email", required = "required"})
+                    </div>
+                </div>
+                <div class='set'>
+                    <div class='label'>
+                        <label> Your Adress</label>
+                        @Html.TextBoxFor(e => e.UserAdress, new { placeholder = "Adress", required = "required" })
+                    </div>
+                    <div class='label'>
+                        <label> Your Age </label>
+                        @Html.TextBoxFor(e => e.UserAge, new { placeholder = "Age", required = "required", Type = "number" })
+                    </div>
+                </div>
+                <div class='set'>
+                    <div class='label'>
+                        <label> Your Family Situation</label>
+                        @Html.TextBoxFor(e => e.UserFamily_situation, new { placeholder = "Family Situation", required = "required" })
+                    </div>
+                    <div class='label'>
+                        <label> Your Profession</label>
+                        @Html.TextBoxFor(e => e.UserProfession, new { placeholder = "Profession ", required = "required" })
+                    </div>
+
+                </div>
+
+                <div class=" label">
+                    <label> Your remarks </label>
+                    @Html.TextArea("remarks")
+                </div>
+            </header>
+            <footer>
+                <div class=" set">
+                   <input id='back' type="reset" value="Reset" />
+                    <input id='next' type="submit" value=" Submit"/>  
+
+                </div>
+
+            </footer>
+        </div>
+   
+</div>
 }
+
