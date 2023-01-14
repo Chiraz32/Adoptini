@@ -48,7 +48,7 @@ a, a:hover, a:active, a:visited{
 .nav-item a {
     display:block;
 }
-.btn-primary {
+.btn-primary, .modal-operations button {
     color: white;
     background-color: #EF8202;
     border-radius: 5px;
@@ -56,7 +56,7 @@ a, a:hover, a:active, a:visited{
     padding:10px;
     border-width:3px;
 }
-.btn-primary:hover {
+.btn-primary:hover, .modal-operations button:hover {
     transform: scale(1.1);
     background-color: white;
     color: #EF8202;
