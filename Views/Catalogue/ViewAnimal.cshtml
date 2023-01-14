@@ -63,8 +63,19 @@
                 <p>@animal.Description helloo my name dogy </p>
 
             </div>
+<<<<<<< HEAD
+            @if(ViewBag.user==true )
+            {
+                <button onclick="@("window.location.href='" + @Url.Action("DeletePost", "Profile", new {id = animal.Id}) +"'");"
+                    class="VuButton"> Delete Post </button>
+=======
             <button class="adopt-me"> <a href="https://localhost:44331/Adopting/Adopt/@animal.Id">Adopt @animal.Name </a></button> 
+>>>>>>> 958e931fcf973680867f1b03539862601628c94a
 
+            }
+            else {
+                <button  class="VuButton"> Addopt Me </button>
+            }
             
         </div>
         <img src=@(animal.Image.Contains("http") ? animal.Image : "../images/"+animal.Image) alt=@animal.Name class="carte-animal-img">

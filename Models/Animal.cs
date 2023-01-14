@@ -21,11 +21,12 @@ namespace AnimalAdoption.Models
         string description;
 
 
+
         public Animal()
         {
         }
 
-        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int weight, int id,string userMail, string description)
+        public Animal(string name, string type, int age, string adress, string image, string breed, string gender, int weight, int id, string userMail, string description)
 
         {
             Name = name;
@@ -55,7 +56,7 @@ namespace AnimalAdoption.Models
         public string Adress { get => adress; set => adress = value; }
         public string Description { get => description; set => description = value; }
 
+
+
     }
-
-
 }
