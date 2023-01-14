@@ -150,6 +150,9 @@
     padding: 8px 15px;
 
 }
+.animal-description{
+    width:600px;
+}
 .animal-description p {
     font-family: "Amatic SC",cursive;
 }
@@ -161,7 +164,7 @@
     border: white solid 1px;
     border-radius: 10px;
     height: 50px;
-
+    margin-bottom: 20px;
 }
 
     
@@ -169,6 +172,8 @@
 .VuButton:hover {
     cursor: pointer;
     transform: scale(1.05);
-    margin-bottom: 20px;
 }
 
+.animal-details {
+    display : flex; 
+}

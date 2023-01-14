@@ -62,7 +62,7 @@ namespace AnimalAdoption.Controllers
             IEnumerable<Adoption> adoptionsList = adoptingRepository.GetAll();
             Debug.WriteLine(" adoplist " + adoptionsList.Count());
             
-            return RedirectToAction("Index","Catalogue",new { id = " Your request is sent successfully" });
+            return RedirectToAction("Index","Catalogue",new { succmsg = " Your request is sent successfully" });
         }
     }
 }

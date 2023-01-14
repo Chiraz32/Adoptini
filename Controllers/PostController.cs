@@ -31,7 +31,7 @@ namespace AnimalAdoption.Controllers
             Debug.WriteLine(" form arrived");
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
             List<Animal> animals = dataBaseContext.animal.ToList();
-            int id = animals.Count();
+            int id = animals[animals.Count() - 1].Id;
             string uniqueFileName="";
             if (image != null)
             {
