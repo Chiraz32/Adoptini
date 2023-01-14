@@ -50,13 +50,15 @@ namespace AnimalAdoption.Models
         public string Gender { get => gender; set => gender = value; }
         public int Id { get => id; set => id = value; }
         public int Weight { get => weight; set => weight = value; }
-
         public string UserMail { get => userMail; set => userMail = value; }
-
         public string Adress { get => adress; set => adress = value; }
         public string Description { get => description; set => description = value; }
 
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
     }
 }

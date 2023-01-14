@@ -12,14 +12,20 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 500;
-    height: 100vh;
+    height: 100%;
     justify-items: center;
+
+}
+main{
+    
+    align-items:center;
+
 }
 
 .signup-container {
     display: grid;
     grid-template-areas: "left right";
-    max-width: 900px;
+   
 }
 
 .left-container {
@@ -61,7 +67,24 @@ body {
         width: 70%;
         height:50%;
     }
-
+.vertical-set {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+poppyImage {
+   
+    width: 15px;
+    height: 10px;
+    
+}
+.app-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:3%;
+}
 .right-container {
     background-color: #F7C78E;
     display: grid;
@@ -129,6 +152,7 @@ body {
             border-radius: 19px;
             font-family: "Montserrat", sans-serif;
             font-weight:500;
+
           
         }
         .right-container footer button{

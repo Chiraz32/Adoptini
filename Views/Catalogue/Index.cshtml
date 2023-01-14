@@ -3,11 +3,11 @@
 }
 
 @{
-    var message = ViewBag.message;
+    var message = ViewBag.error;
     if (@message != null)
     {   
       
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-success" role="alert">
             @message
         </div>
     }

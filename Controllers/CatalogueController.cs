@@ -27,7 +27,7 @@ namespace AnimalAdoption.Controllers
         {
             List<Animal> animals = dataBaseContext.animal.ToList();
             ViewBag.animals = animals;
-            ViewBag.message = id;
+            ViewBag.error= id;
             return View();
         }
 
@@ -38,8 +38,9 @@ namespace AnimalAdoption.Controllers
             Animal animal = animalRepository.Get(id);
             ViewBag.animal = animal;
 
+
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            var email = HttpContext.Session.GetString("userId");
+            var email = HttpContext.Session.GetString("userEmail");
 
             if (email == animal.UserMail) ViewBag.user = true; 
 
