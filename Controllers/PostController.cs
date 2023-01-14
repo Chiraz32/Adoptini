@@ -31,7 +31,8 @@ namespace AnimalAdoption.Controllers
             Debug.WriteLine(" form arrived");
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
             List<Animal> animals = dataBaseContext.animal.ToList();
-            int id = animals.Count();
+            int id = animals[animals.Count() - 1].Id;
+            Debug.WriteLine(id);
             string uniqueFileName="";
             if (image != null)
             {
@@ -44,7 +45,7 @@ namespace AnimalAdoption.Controllers
             }
 
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            var email = HttpContext.Session.GetString("userId");
+            var email = HttpContext.Session.GetString("userEmail");
             User user = users.Find(user => user.Email == email);
             Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id ,email,description) ;
 

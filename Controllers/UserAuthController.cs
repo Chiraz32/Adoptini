@@ -32,7 +32,7 @@ namespace AnimalAdoption.Controllers
         {
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            int id = users.Count();
+            int id = users[users.Count()-1].Id;
             User user = new User(id + 1, email, password, phone_number);
             UserRepository userRepository = new UserRepository(dataBaseContext);
             if (userRepository.Find(user => user.Email == email).Count() != 0)

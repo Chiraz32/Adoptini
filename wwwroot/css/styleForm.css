@@ -9,13 +9,11 @@ body {
     align-items: center;
     background-color: antiquewhite;
     color: rgba(0, 0, 0, 0.8);
-    display: grid;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 500;
     height: 100vh;
     justify-items: center;
-    weight: 100vw;
 }
 
 .signup-container {
