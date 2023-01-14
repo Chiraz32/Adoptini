@@ -18,6 +18,8 @@ namespace AnimalAdoption.Models
         string breed;
         string gender;
         string description;
+        string userMail;
+
 
 
 
@@ -32,6 +34,8 @@ namespace AnimalAdoption.Models
             Gender = gender;
             Id = id;
             Weight = weight;
+          //  UserMail = userMail;
+
         }
 
         public string Name { get => name; set => name = value; }
@@ -44,6 +48,8 @@ namespace AnimalAdoption.Models
         public int Weight { get => weight; set => weight = value; }
         public string Adress { get => adress; set => adress = value; }
         public string Description { get => description; set => description = value; }
+        public string UserMail { get => userMail; set => userMail = value; }
+
     }
 
 

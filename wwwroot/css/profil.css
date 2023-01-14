@@ -1,0 +1,105 @@
+﻿.profil-container {
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 70%;
+    min-height: 500px;
+    background-color: #EF8202;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.user {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F5B369;
+    padding: 10px;
+    width:60%;
+    min-height: 500px;
+
+}
+
+    .posts .carte {
+        width: 200px;
+        height: 300px;
+        background-color: #F9D0A2;
+    }
+
+.posts .carte img {
+    height:200px;
+}
+    .posts .posts-title {
+        font-family: 'Jost';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 43px;
+        text-align: center;
+        color: #FFFCFC;
+        text-decoration: underline;
+        margin: 20px;
+        letter-spacing: 2px;
+    }
+
+.animals {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+  
+.user-icon{
+
+    width:200px;
+    margin-bottom:50px;
+}
+.userName {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 24px;
+    color:white;
+}
+.userinfo {
+    display:flex;
+}
+
+.info {
+    font-family: 'Inter';
+    color: white;
+    font-size:20px;
+    text-transform: capitalize;
+
+}
+.posts {
+    text-align:center;
+}
+.no-posts p {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 24px;
+    color: white;
+    margin:100px;
+}
+
+.user .icon{
+    width:15px;
+    color : white ; 
+    object-fit:contain;
+    margin-right:10px;
+}
