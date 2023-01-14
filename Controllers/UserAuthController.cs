@@ -21,6 +21,12 @@ namespace AnimalAdoption.Controllers
             ViewBag.errorMessage = errorMessage;
             return View();
         }
+        
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return Redirect("/home");
+        }
         [HttpPost]
         public IActionResult CreateUser(string email, string password, string phone_number)
         {
@@ -58,9 +64,26 @@ namespace AnimalAdoption.Controllers
                 string errorMessage = "please verify password";
                 return RedirectToAction("SignIn", new { errorMessage = errorMessage });
             }
-            HttpContext.Session.SetString("userId",email);
+            HttpContext.Session.SetString("userEmail",email);
+            HttpContext.Session.SetInt32("userId", user.Id);
             return Redirect("/");
 
+        }
+        public IActionResult DeleteUser(int id)
+        {
+            DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
+            UserRepository userRepository = new UserRepository(dataBaseContext);
+            AnimalRepository animalRepository = new AnimalRepository(dataBaseContext);
+            User user = userRepository.Get(id);
+            if (user!=null)
+            {
+                IEnumerable<Animal> userAnimals = animalRepository.Find(animal => animal.UserMail == user.Email);
+                animalRepository.RemoveRange(userAnimals);
+                userRepository.Remove(user);
+                HttpContext.Session.Clear();
+               
+            }
+            return Redirect("/");
         }
     }
 }

@@ -137,3 +137,70 @@ body {
     width: 100%;
     height: calc(100% - 100px);
 }
+.profile-container {
+    position: relative;
+}
+.nav-item .profile-container .profile-dropdown{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    transition: transform 200ms;
+    transform:scaleY(0);
+    transform-origin:top;
+    gap:0;
+    list-style-type:none;
+    width: 200px;
+}
+.nav-item .profile-container .profile-dropdown.open {
+    transform: scaleY(1);
+}
+.profile-dropdown li {
+    display: block;
+    background: white;
+    color: #EF8202;
+    padding:10px;
+    text-decoration:none;
+}
+.profile-dropdown li a {
+    color:inherit;
+}
+.profile-dropdown li:hover {
+    background: #EF8202;
+    color: white;
+}
+.delete-user-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.delete-user-modal.open{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.delete-user-modal .modal-operations {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 20px;
+}
+.delete-user-modal a {
+    display:block;
+    color: inherit;
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    padding: 24px;
+    background: #EF8202;
+    width:50%;
+    flex-grow:0;
+    border-radius:20px;
+}
