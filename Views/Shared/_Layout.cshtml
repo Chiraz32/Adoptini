@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     @RenderSection("Styles", false)
 </head>
+@using Microsoft.AspNetCore.Http;
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
@@ -25,9 +26,26 @@
                                </a>
                         </li>
                         <li class="nav-item">
-                            <a class="link" asp-area="" asp-controller="UserAuth" asp-action="SignIn">
-                                SignIn
-                            </a>
+                            @if (@Context.Session.GetString("userId") == null)
+                            {
+                                <a class="link" asp-area="" asp-controller="UserAuth" asp-action="SignIn">
+                                    SignIn
+                                </a>
+                            }
+                            else
+                            {  
+                                <div class="profile-container">
+                                        <img src="~/images/profile-icon.svg" width="50" height="50" />
+                                        <ul class="profile-dropdown">
+                                         <li><a asp-controller="Profile" asp-action="Index">View Profile</a></li>
+                                            <li><a asp-controller="UserAuth" asp-action="Logout">Logout</a></li>
+                                            <li class="delete-button">Delete Account</li>
+
+                                        </ul>
+                              
+                                </div>
+                            }
+                            
                         </li>
                         <li class="nav-item">
                             <a class="link" asp-area="" asp-controller="Post" asp-action="Index">
@@ -41,7 +59,15 @@
     </header>
 
     <div class="app-container">
-
+        <div class="delete-user-modal">
+            <div class="modal-body">
+            <h4>Are you sure you want to delete your account?</h4>
+            <div class="modal-operations">
+            <button class="btn btn-primary"><a href="/UserAuth/DeleteUser/@Context.Session.GetInt32("userId")" class="confirm-delete">Delete Account</a></button>
+            <button class="cancel-delete btn btn-primary">Cancel</button>
+            </div>
+            </div>
+        </div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

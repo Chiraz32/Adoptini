@@ -37,9 +37,13 @@ namespace AnimalAdoption.Controllers
             AnimalRepository animalRepository = new AnimalRepository (dataBaseContext);
             Animal animal = animalRepository.Get(id);
             ViewBag.animal = animal;
-            var email = HttpContext.Session.GetString("userId");
-            if (email == animal.UserMail)
-             ViewBag.user = true; 
+
+
+            List<User> users = DataBaseContext.dataBase_Context.user.ToList();
+            var email = HttpContext.Session.GetString("userEmail");
+
+            if (email == animal.UserMail) ViewBag.user = true; 
+
 
             return View();
         }

@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var user = ViewBag.user;
+    var animalForAdoption = ViewBag.animalsForAdoption;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/catalogue.css" />
+    <link rel="stylesheet" href="~/css/profil.css" />
+
+</head>
+
+
+<div class="profil-container">
+    <div class="user">
+        <img src="../images/account-user-avatar-svgrepo-com (1).svg" alt="user-img" class="user-icon" />
+     
+        <div class="userinfo">
+            <img src="../images/e-mail.png" alt="mail-icon" class="icon" />
+            <h5 class="info">@user.Email</h5>
+        </div>
+
+
+        <div class="userinfo">
+            <img src="../images/phone.png" alt="phone-icon" class="icon"/>
+            <h5 class="info">@user.Phone_number</h5>
+
+        </div>
+       
+    </div>
+
+    <div class="posts">
+        <div class="posts-title">
+            <p>Your Posts : </p>
+        </div>
+
+       
+        <div class="animals">
+            @if (ViewBag.postNumber > 0)
+        {
+            @foreach (var animal in ViewBag.animalsForAdoption)
+            {
+                <div class="carte"
+         onclick="@("window.location.href='" + @Url.Action("ViewAnimal", "Catalogue", new {id = animal.Id}) +"'");">
+
+                    <div class="carte-text">
+                        <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@animal.Name>
+
+                        <div class="info">
+                            <h3 class="animal-name"> @animal.Name </h3>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+
+        else
+            {
+            <div class="no-posts"> <p> You didn't post any pets for adoption yet ..</p> </div>
+            }
+       
+    </div>
+
+    </div>
+</div>

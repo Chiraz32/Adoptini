@@ -17,7 +17,7 @@ namespace AnimalAdoption.Controllers
         [HttpGet("post")]
         public IActionResult Index()
         {
-            var session = HttpContext.Session.GetString("userId");
+            var session = HttpContext.Session.GetString("userEmail");
             if (session == null)
                 return Redirect("/signin");
             return View();
@@ -44,7 +44,7 @@ namespace AnimalAdoption.Controllers
             }
 
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            var email = HttpContext.Session.GetString("userId");
+            var email = HttpContext.Session.GetString("userEmail");
             User user = users.Find(user => user.Email == email);
             Animal animal = new Animal(name,type,age,adress, uniqueFileName, breed,gender , weight ,++id ,email,description) ;
 
@@ -71,13 +71,13 @@ namespace AnimalAdoption.Controllers
             List<Animal> animals = dataBaseContext.animal.ToList();
             Animal animal = animals.Find(animal => animal.Id == id);
             
-            var session = HttpContext.Session.GetString("userId");
+            var session = HttpContext.Session.GetString("userEmail");
             Debug.WriteLine("sesssion" +session);
             if (session == null)
                 return Redirect("/signin");
             if ( session != animal.UserMail)
-                { 
-                  return Redirect("/Catalogue/You can't modify this post");
+                {
+                RedirectToAction("Index", "Catalogue", new { id = animal.Id });
                  }
                
             return View(animal);
@@ -110,7 +110,7 @@ namespace AnimalAdoption.Controllers
             }
 
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            var email = HttpContext.Session.GetString("userId");
+            var email = HttpContext.Session.GetString("userEmail");
             User user = users.Find(user => user.Email == email);
             
             AnimalRepository animalRepository = new AnimalRepository(dataBaseContext);

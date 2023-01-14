@@ -9,6 +9,7 @@
 }
 
 
+
 .carte {
     display: flex;
     flex-direction: column;
@@ -71,10 +72,7 @@
     margin-top :-15px;
 }
 
-.view-more {
-     buttom : 0px;
-     border-radius:0%;
-}
+
 
 .carte-animal {
 
@@ -102,7 +100,8 @@
     margin : 20px;
 }
 .carte-animal-img{
-    width : 50%;
+    width : 400px;
+    height :400px;
     object-fit:cover;
     margin-right:0;
 }
@@ -155,20 +154,21 @@
     font-family: "Amatic SC",cursive;
 }
 
-.adopt-me {
+.VuButton {
     background-color: #eb651c;
     color: white;
     width: 80% font-family: "Amatic SC",cursive;
     border: white solid 1px;
     border-radius: 10px;
     height: 50px;
-    text-decoration: none;
+
 }
 
-    .adopt-me:hover {
-        
-        cursor: pointer;
-        transform: scale(1.05);
-        text-decoration: none;
-    }
-  
+    
+
+.VuButton:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    margin-bottom: 20px;
+}
+
