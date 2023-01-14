@@ -43,17 +43,17 @@
             </div>
             <div class="carte-animal-text2">
                 <div>
-                    <img src="../images/icon-age.png" alt="age-icon" class="animal-icon />
+                    <img src="../images/icon-age.png" alt="age-icon" class="animal-icon"" />
                    <p class="animal-info-value"> @animal.Age</p>
                 </div>
 
                 <div>
-                    <img src="../images/icon-gender.png" alt="gender-icon" class="animal-icon  />
+                    <img src="../images/icon-gender.png" alt="gender-icon" class="animal-icon""  />
                     <p class="animal-info-value"> @animal.Gender</p>
                 </div>
                 
                 <div>
-                    <img src="../images/icons-adress.png" alt="adress-icon" class="animal-icon />
+                    <img src="../images/icons-adress.png" alt="adress-icon" class="animal-icon"" />
                     <p class="animal-info-value"> @animal.Adress</p>
                 </div>
 
@@ -63,14 +63,14 @@
                 <p>@animal.Description helloo my name dogy </p>
 
             </div>
-<<<<<<< HEAD
+
             @if(ViewBag.user==true )
             {
                 <button onclick="@("window.location.href='" + @Url.Action("DeletePost", "Profile", new {id = animal.Id}) +"'");"
                     class="VuButton"> Delete Post </button>
-=======
+
             <button class="adopt-me"> <a href="https://localhost:44331/Adopting/Adopt/@animal.Id">Adopt @animal.Name </a></button> 
->>>>>>> 958e931fcf973680867f1b03539862601628c94a
+
 
             }
             else {

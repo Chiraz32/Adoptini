@@ -22,7 +22,7 @@ namespace AnimalAdoption.Controllers
 
 
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
-            var email = HttpContext.Session.GetString("userId");
+            var email = HttpContext.Session.GetString("userEmail");
             User user = users.Find(user => user.Email == email);
 
              IEnumerable<Animal> animalsForAdoption  = animalRepository.Find(animal => animal.UserMail == email);
