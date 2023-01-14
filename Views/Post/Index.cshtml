@@ -1,52 +1,89 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<form enctype="multipart/form-data"  method="post">
-    <fieldset>
-        <legend>Post animal</legend>
+﻿
+@model Adoption
+<head>
+    <link rel="stylesheet" href="~/css/styleForm.css" />
+</head>
+<div class='signup-container'>
+    <div class='left-container'>
+        <h1>
+            <img src='~/images/ADOPTINI.png'>
+        </h1>
+        <div class='puppy'>
+            <img src='~/images/dog_image-removebg-preview.png'>
+        </div>
+    </div>
+    <div class='right-container'>
+        <form enctype="multipart/form-data" method="post">
 
-        <div>
-            <label for="Name">Name:</label>
-            <input type="text" name="Name" placeholder="Name" />
-        </div>
-        <div>
-            <label for="Type">Type:</label>
-            <input type="text" name="Type" placeholder="Dog,cat .." />
-        </div>
-        <div>
-            <label for="Age">Age:</label>
-            <input type="number" name="Age" placeholder="Age (in months)" />
-        </div>
-        <div>
-            <label for="weight">weight:</label>
-            <input type="number" name="weight" placeholder="weight (in kg)" />
-        </div>
-        <div>
-            <label for="adress">adress:</label>
-            <input type="text" name="adress" placeholder="adress" />
-        </div>
-        <div>
-            <label for="breed">breed:</label>
-            <input type="text" name="breed" placeholder="porcelaine" />
-        </div>
-        <div>
-            <label for="gender">gender:</label>
-            <input type="text" name="gender" placeholder="male,female" />
-        </div>
-        <div>
-            <label for="description">description:</label>
-            <input type="text" name="description" placeholder="Description ......" />
-        </div>
-        <div>
-            <label for="image">image:</label>
-            <input type="file" name="image" />
-        </div>
-       
-        <div>
 
-            <input type="submit" value="Submit" class="submit" />
-        </div>
-    </fieldset>
-</form>
+            <header>
+                <h1>Yay, puppies! Ensure your pup gets the best care!</h1>
+                
+                <fieldset>
+                    <div class='set'>
+                        <div class='label'>
+                            <label for='Name'>Name</label>
+                            <input id="Name"name="Name" placeholder="Pet's name" type='text' required = "required"/>
+                        </div>
+                        <div class="label">
+                            <label for="Type">Type</label>
+                            <input type="text" name="Type" placeholder="Dog,cat .." required = "required"/>
+                        </div>
+
+                    </div>
+                    <div class='set'>
+                        <div class="label">
+                            <label for="Age">Age:</label>
+                            <input type="number" name="Age" placeholder="Age (in months)"required = "required" />
+                        </div>
+                        <div class="label">
+                            <label for="weight">Weight </label>
+                            <input type="number" name="weight" placeholder="weight (in kg)" required = "required" />
+                        </div>
+                    </div>
+                    <div class='set'>
+                        <div class='label'>
+                            <label for='gender'>Gender</label>
+                            <div class='radio-container'>
+                                <input checked='' id='pet-gender-female' name="gender" type='radio' value='female'>
+                                <label for='pet-gender-female'>Female</label>
+                                <input id='pet-gender-male' name='gender' type='radio' value='male'>
+                                <label for='pet-gender-male'>Male</label>
+                            </div>
+                        </div>
+
+                        <div class="label">
+                            <div>
+                                <label for="adress">Adress </label>
+                                <input type="text" name="adress" placeholder="adress" required = "required" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class=" set">
+                        <div class="label">
+                            <label for="breed">Breed</label>
+                            <input type="text" name="breed" placeholder="porcelaine" required = "required"/>
+                        </div>
+                        <div class="label">
+                            <label for="image">image:</label>
+                            <input type="file" name="image"  required = "required" />
+                        </div>
+                        
+                    </div>
+
+            </header>
+            <footer>
+                <div class='set'>
+                    <input  id="back" type="reset" value="reset"/>
+                    <input id ="next" type="submit" value="Submit"/>
+                </div>
+            </footer>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+
+     

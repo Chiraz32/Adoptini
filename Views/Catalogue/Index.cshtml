@@ -1,8 +1,21 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
+@{
+    var message = ViewBag.message;
+    if (@message != null)
+    {   
+      
+        <div class="alert alert-warning" role="alert">
+            @message
+        </div>
+    }
+}
+
 <head>
     <link rel="stylesheet" href="~/css/catalogue.css" />
+
 
 </head>
 
@@ -10,11 +23,13 @@
 <div class="catalogue-container">
     @foreach (var animal in ViewBag.animals)
     {
+
         <div class="carte"
          onclick="@("window.location.href='" + @Url.Action("ViewAnimal", "Catalogue", new {id = animal.Id}) +"'");">
             
             <div class="carte-text">
                 <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@animal.Name>
+
 
                 <div class="info">
                     <h3 class="animal-name"> @animal.Name </h3>
@@ -24,5 +39,24 @@
                 </div>
            </div>
         </div>
+
+    }
+</div>
+<div class="carte">
+    @{
+        string path = "1200px-Beagle_Faraon_0f81.jpg";
+
+    }
+    <img src="" alt='1200px-Beagle_Faraon_0f81.jpg'>
+    <div class="carte-text">
+        <p>
+            <h4> name: </h4> Name <br />
+
+
+        </p>
+
+    </div>
+</div>
+
      }
 </div>

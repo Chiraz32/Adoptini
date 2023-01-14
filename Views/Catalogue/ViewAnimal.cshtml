@@ -1,6 +1,18 @@
 ﻿@{
-   var animal = ViewBag.animal;
+    var animal = ViewBag.animal;
 }
+
+@{ var imagePath = "";
+    if (animal.Image.Contains("http"))
+    { imagePath = animal.Image;
+
+    }
+    else {
+        imagePath = @"../images/" + animal.Image;
+    }
+}
+    
+
 <head>
     <link rel="stylesheet" href="~/css/catalogue.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
@@ -51,7 +63,7 @@
                 <p>@animal.Description helloo my name dogy </p>
 
             </div>
-            <button class="adopt-me"> Addopt Me </button>
+            <button class="adopt-me"> <a href="https://localhost:44331/Adopting/Adopt/@animal.Id">Adopt @animal.Name </a></button> 
 
             
         </div>
@@ -59,3 +71,4 @@
 
     </div>
 </div>
+
