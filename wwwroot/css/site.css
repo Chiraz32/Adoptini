@@ -1,6 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
+*,*::before,*::after  {
+    box-sizing:border-box;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -8,14 +10,58 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+a, a:hover, a:active, a:visited{
+  text-decoration:none;
 }
-
+.navbar {
+    background: #EF8202;
+    margin:0 !important;
+}
+.navbar-collapse ul {
+    justify-content: flex-end;
+    gap:20px;
+}
+.link {
+    position: relative;
+    text-decoration:none;
+    color:white;
+    font-size: 1.2em;
+}
+.link:hover{
+    transform: scale(1.1);
+    color:white;
+}
+.link::before {
+    content:'';
+    height:2px;
+    background-color:white;
+    position:absolute;
+    top:100%;
+    width:0;
+    color:white;
+    font-weight:bold;
+    transition: 200ms ease-in-out
+}
+.link:hover.link::before {
+    width:100%;
+}
+.nav-item a {
+    display:block;
+}
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: white;
+    background-color: #EF8202;
+    border-radius: 5px;
+    border-color: white;
+    padding:10px;
+    border-width:3px;
+}
+.btn-primary:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #EF8202;
+    border-color:white;
+    transition:200ms ease-in-out;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -28,6 +74,8 @@ a {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+  margin:0;
+  padding:0;
 }
 @media (min-width: 768px) {
   html {
@@ -63,7 +111,8 @@ body {
   margin-bottom: 60px;
   background-color: antiquewhite;
   height: 100vh;
- 
+  padding:0;
+  margin:0;
 }
 .footer {
   position: absolute;
@@ -81,36 +130,10 @@ body {
     justify-content: center;
     align-items: center;
     width:100%;
-    height:100%;
+    height:calc(100% - 100px);
 }
 
-
-.carte {
-    display: flex;
-    flex-direction: column;
-    margin: 50px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: burlywood;
-}
-
-    .carte img {
-        width: 100%;
-        height: 100px;
-        border-radius: 10px;
-    }
-
-.carte-text {
-    display: flex;
-    flex-direction: column;
+.app-container {
     width: 100%;
-}
-
-    .carte-text p {
-        font-size: 15px;
-    }
-.carte img {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
+    height: calc(100% - 100px);
 }

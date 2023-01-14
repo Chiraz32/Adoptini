@@ -45,11 +45,13 @@ namespace AnimalAdoption.Controllers
             Debug.WriteLine(" form arrived");
             Debug.WriteLine(animalId);
             DataBaseContext dataBaseContext = DataBaseContext.Instantiate_DataBaseContext();
+
             List<Adoption> adoptions = DataBaseContext.dataBase_Context.adoption.ToList();
 
             List<User> users = DataBaseContext.dataBase_Context.user.ToList();
             var email = HttpContext.Session.GetString("userId");
             User user = users.Find(user => user.Email == email);
+
 
             int id = adoptions.Count();
             Debug.WriteLine(" adoplist " + id);
