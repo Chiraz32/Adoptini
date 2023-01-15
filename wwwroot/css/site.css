@@ -7,6 +7,7 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  margin-left:40px;
 }
 
 /* Provide sufficient contrast against white background */
@@ -25,7 +26,7 @@ a, a:hover, a:active, a:visited{
     position: relative;
     text-decoration:none;
     color:white;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 .link:hover{
     transform: scale(1.1);
@@ -56,13 +57,13 @@ a, a:hover, a:active, a:visited{
     padding:10px;
     border-width:3px;
 }
-.btn-primary:hover, .modal-operations button:hover {
-    transform: scale(1.1);
-    background-color: white;
-    color: #EF8202;
-    border-color:white;
-    transition:200ms ease-in-out;
-}
+    .btn-primary:hover, .btn-primary:active .modal-operations button:hover, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle, .btn:focus-visible {
+        transform: scale(1.1);
+        background-color: white;
+        color: #EF8202;
+        border-color: white;
+        transition: 200ms ease-in-out;
+    }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
@@ -130,12 +131,12 @@ body {
     justify-content: center;
     align-items: center;
     width:100%;
-    height:calc(100% - 100px);
+    margin-left:50px;
+    height:100%;
 }
 
 .app-container {
     width: 100%;
-    height: calc(100% - 100px);
 }
 .profile-container {
     position: relative;
@@ -203,4 +204,18 @@ body {
     width:50%;
     flex-grow:0;
     border-radius:20px;
+}
+.catalogue-logo{
+    margin-bottom:10px;
+}
+
+.btn-primary.focus, .btn-primary:focus, .btn:focus-visible {
+    box-shadow: none;
+}
+
+element.style {
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
 }

@@ -25,6 +25,7 @@ main{
 .signup-container {
     display: grid;
     grid-template-areas: "left right";
+    margin:50px;
    
 }
 
