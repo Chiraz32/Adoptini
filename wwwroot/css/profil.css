@@ -105,11 +105,11 @@
     object-fit:contain;
     margin-right:5px;
 }
-.posts .info .animal-name {
+.animals .info .animal-name {
     font-size: 1.5rem;
-    
+    text-align: center;
 }
-.posts .info {
+.animals .info {
     margin :0;
     align-items:center;
     justify-content:center;

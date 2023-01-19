@@ -1,5 +1,8 @@
+@using AnimalAdoption.Models;
+@model AnimalAdoption.Models.Form;
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Catalogue";
 }
 
 @{
@@ -7,10 +10,13 @@
     if (@message != null)
     {   
       
-        <div class="alert alert-success" role="alert">
-            @message
-        </div>
+    <div class="alert alert-success" role="alert">
+                @message
+    </div>
     }
+    var animals = ViewBag.animals;
+
+
 }
 
 <head>
@@ -19,26 +25,69 @@
 
 </head>
 
+
+
+
+
 <div class="catalogue-container">
-    @foreach (var animal in ViewBag.animals)
-    {
+    
+    <div class ="filter">
+        <div class="fixed">
+        <h4 >Search by </h4>
+            @using (Html.BeginForm("Index", "Catalogue", FormMethod.Post))
+            {
 
-        <div class="carte"
-         onclick="@("window.location.href='" + @Url.Action("ViewAnimal", "Catalogue", new {id = animal.Id}) +"'");">
-            
-            <div class="carte-text">
-                <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@animal.Name>
+                for (int j = 0; j < Model.form.Count; j++)
+                {
+                    <span> @Model.form[j].Label </span>
+                    <br />
 
 
-                <div class="info">
-                    <h3 class="animal-name"> @animal.Name </h3>
-                    <h4 class="animal-breed"> @animal.Breed  </h4>  
-                    <h5 class="animal-adress"> @animal.Adress </h5>   
+                    for (int i = 0; i < Model.form[j].checkboxfilters.Count; i++)
+                    {
+                        @Html.CheckBoxFor(m => Model.form[j].checkboxfilters[i].IsChecked)
+                        @Model.form[j].checkboxfilters[i].Value
+                        @Html.HiddenFor(m => Model.form[j].checkboxfilters[i].Value)
+                        @Html.HiddenFor(m => Model.form[j].checkboxfilters[i].Id)
 
+                        <br />
+                    }
+                }
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
                 </div>
-           </div>
+            }
+
+
         </div>
 
-    }
+        </div>
+    <div class="animal-catalogue">
+        @if (ViewBag.animals !=null )
+        {
+            @foreach (var animal in animals)
+            {
+                <div class="carte"
+         onclick="@("window.location.href='" + @Url.Action("ViewAnimal", "Catalogue", new {id = animal.Id}) +"'");">
+
+                    <div class="carte-text">
+                        <img src=@(animal.Image.Contains("http") ? animal.Image : "images/" +animal.Image) alt=@animal.Name>
+
+
+                        <div class="info">
+                            <h3 class="animal-name"> @animal.Name </h3>
+                            <h4 class="animal-breed"> @animal.Breed  </h4>  
+                            <h5 class="animal-adress"> @animal.Adress </h5>   
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+            </div>
+    @if (ViewBag.animals == null )
+    {
+        <div class="No-animal"> No animal</div>
+        }
 </div>
 
